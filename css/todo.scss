@@ -1,0 +1,75 @@
+*{
+	font-family: 'Montserrat';
+}
+#container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 50px;
+	width: 100%;
+}
+#taskBar{
+	border: none;
+	border-bottom: 2px solid #000;
+	width: 300px;
+	font-size: 18px;
+}
+#addTask{
+	margin-left: 20px;
+	float: right;
+	background-image: url(https://img.icons8.com/ios-glyphs/24/000000/add.png);
+	background-size: 30px;
+	height: 34px;
+	width: 34px;
+	border-radius: 50%;
+}
+.emptyAlert{
+	border-bottom: 2px #ff0000 solid;
+}
+hr{
+	width: 350px;
+	border-top: 2px solid #000;
+	margin-top: -15px;
+}
+#board{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas:
+		"todo pending completed";
+	grid-gap: 100px;
+	margin-top: 50px;
+}
+#todo{
+	grid-area: todo;
+}
+#pending{
+	grid-area: pending;
+}
+#completed{
+	grid-area: completed;
+}
+.task{
+	display: grid;
+	grid-template-columns: 1fr 200px 1fr 1fr;
+	grid-gap: 5px;
+}
+#deleteIcon, #moveIcon{
+	padding-top: 15px;
+}
+#moveIcon:hover{
+	
+}
+#completed > div > p {
+	text-decoration: line-through;
+}
+
+
+@media only screen and (max-width: 1149px){
+	#board{
+		grid-template-areas:
+			"todo" "pending" "completed";
+	}	
+}
+
+

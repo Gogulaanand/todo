@@ -1,0 +1,35 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+<script type="text/javascript" src="../js/todo.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../css/todo.scss" />
+</head>
+<body>
+<div id="container">
+	<div id="taskEntrySection">
+	<input type="text" placeholder="Add Task" id="taskBar" onfocus = "this.value=''">
+	<button id="addTask"></button>
+	</div>
+	<div id="board">
+		<div id="todo">
+			<h2>TODO</h2>
+			<hr/>
+			<div id="taskList">
+			</div>
+		</div>
+		<div id="pending">
+			<h2>PENDING</h2>
+			<hr/>
+			<div id="pendingList">
+			</div>
+		</div>
+		<div id="completed">
+			<h2>COMPLETED</h2>
+			<hr/>
+			<div id="completedList">
+			</div>
+		</div>
+	</div>
+</div>
+</body>
