@@ -1,6 +1,7 @@
 var input = document.getElementById('taskBar');
 var button = document.getElementById('addTask');
 var todo = document.getElementById('todo');
+var pending = document.getElementById('pending');
 var completed = document.getElementById('completed');
 input.addEventListener('keyup', function(event){
 	if((event.which || event.keycode)==13){
@@ -30,16 +31,14 @@ function adder(task){
 	var x = document.createElement('p');
 	var y = document.createTextNode(task);
 	var moveIcon = "<img src='https://img.icons8.com/metro/26/000000/forward-arrow.png' id='moveIcon' onclick='movetoPending(this)'>";
-	var deleteIcon = "<img src='https://img.icons8.com/material-rounded/24/000000/filled-trash.png' id='deleteIcon' onclick='delete(this)'>";
+	var deleteIcon = "<img src='https://img.icons8.com/material-rounded/24/000000/filled-trash.png' id='deleteIcon' onclick='deleteTask(this)'>";
 	
 	x.appendChild(y);
 	div.appendChild(x);
 	div.insertAdjacentHTML('afterbegin', checkbox);
-	div.insertAdjacentHTML('beforeend', moveIcon);
 	div.insertAdjacentHTML('beforeend', deleteIcon);
-	
-	// z.usemap = "#map";
-	
+	div.insertAdjacentHTML('beforeend', moveIcon);
+
 	todo.appendChild(div);
 	i+=1;
 }
@@ -47,10 +46,18 @@ function adder(task){
 
 function movetoPending(move){
 	var task = move.parentElement;
-	var moveIcon = "<img src='https://img.icons8.com/android/24/000000/left2.png' id='moveIcon' onclick = 'movetoTodo()'>";
-	// var oldMoveIcon = document.get
-	// task.replaceChild()
+	var moveIcon = "<img src='https://img.icons8.com/android/24/000000/left2.png' id='moveIcon' onclick = 'movetoTodo(this)'>";
+	move.remove();
+	task.innerHTML+=moveIcon;
 	pending.appendChild(task);
+}
+
+function movetoTodo(move){
+	var task = move.parentElement;
+	var moveIcon = "<img src='https://img.icons8.com/metro/26/000000/forward-arrow.png' id='moveIcon' onclick='movetoPending(this)'>";
+	move.remove();
+	task.innerHTML += moveIcon;
+	todo.appendChild(task);
 }
 function moveToComplete(box){
 	var task = box.parentElement;
@@ -59,5 +66,11 @@ function moveToComplete(box){
 	}
 	else{
 		todo.appendChild(task);
+	}
+}
+function deleteTask(taskToDelete){
+	var taskDiv = taskToDelete.parentElement;
+	if(confirm('Are you sure you want to delete the task? ')){
+		taskDiv.remove();
 	}
 }
