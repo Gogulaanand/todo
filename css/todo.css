@@ -18,14 +18,15 @@
 #addTask{
 	margin-left: 20px;
 	float: right;
-	background-image: url(https://img.icons8.com/ios-glyphs/24/000000/add.png);
-	background-size: 30px;
 	height: 34px;
 	width: 34px;
 	border-radius: 50%;
 }
+#addTask:hover{
+	filter: invert(97%) sepia(14%) saturate(4200%) hue-rotate(34deg) brightness(89%) contrast(82%);
+}
 .emptyAlert{
-	border-bottom: 2px #ff0000 solid;
+	border-bottom: 1px solid red;
 }
 hr{
 	width: 350px;
@@ -53,23 +54,55 @@ hr{
 	display: grid;
 	grid-template-columns: 1fr 200px 1fr 1fr;
 	grid-gap: 5px;
+	animation: lazyload 1s cubic-bezier(0.25,0.1, 0.25 ,1);
+}
+@keyframes lazyload{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+input:focus,
+button:focus{
+	outline: none;
+}
+input[type='checkbox']{
+	margin: auto auto;
+	transform: scale(1.2);
 }
 #deleteIcon, #moveIcon{
 	padding-top: 15px;
 }
+#deleteIcon:hover{
+	filter: invert(20%) sepia(82%) saturate(5821%) hue-rotate(359deg);
+}
 #moveIcon:hover{
-	
+	filter: invert(55%) sepia(6%) saturate(721%) hue-rotate(156deg) brightness(91%) contrast(89%);
 }
 #completed > div > p {
 	text-decoration: line-through;
 }
-
-
-@media only screen and (max-width: 1149px){
+@media only screen and (max-width: 1264px){
 	#board{
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(3, 1fr);
 		grid-template-areas:
 			"todo" "pending" "completed";
 	}	
+	.task{
+		grid-template-columns: 1fr 150px 1fr 1fr;
+	}
+	h2{
+		font-size: 18px;
+	}
+	hr{
+		width: 300px;
+	}
+	#taskbar{
+		width: 250px;
+	}
 }
 
 

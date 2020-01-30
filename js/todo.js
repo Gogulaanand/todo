@@ -30,8 +30,8 @@ function adder(task){
 	var checkbox= "<input type='checkbox' onclick = moveToComplete(this)>";
 	var x = document.createElement('p');
 	var y = document.createTextNode(task);
-	var moveIcon = "<img src='https://img.icons8.com/metro/26/000000/forward-arrow.png' id='moveIcon' onclick='movetoPending(this)'>";
-	var deleteIcon = "<img src='https://img.icons8.com/material-rounded/24/000000/filled-trash.png' id='deleteIcon' onclick='deleteTask(this)'>";
+	var moveIcon = "<img src='https://img.icons8.com/metro/26/000000/forward-arrow.png' alt='move the task to pending section icon' id='moveIcon' onclick='movetoPending(this)'>";
+	var deleteIcon = "<img src='../assets/svg/trash.svg' alt='delete the task icon' id='deleteIcon' onclick='deleteTask(this)'>";
 	
 	x.appendChild(y);
 	div.appendChild(x);
@@ -43,10 +43,9 @@ function adder(task){
 	i+=1;
 }
 
-
 function movetoPending(move){
 	var task = move.parentElement;
-	var moveIcon = "<img src='https://img.icons8.com/android/24/000000/left2.png' id='moveIcon' onclick = 'movetoTodo(this)'>";
+	var moveIcon = "<img src='https://img.icons8.com/android/24/000000/left2.png' alt='move the task back to todo section from the pending section icon' id='moveIcon' onclick = 'movetoTodo(this)'>";
 	move.remove();
 	task.innerHTML+=moveIcon;
 	pending.appendChild(task);
@@ -54,7 +53,7 @@ function movetoPending(move){
 
 function movetoTodo(move){
 	var task = move.parentElement;
-	var moveIcon = "<img src='https://img.icons8.com/metro/26/000000/forward-arrow.png' id='moveIcon' onclick='movetoPending(this)'>";
+	var moveIcon = "<img src='https://img.icons8.com/metro/26/000000/forward-arrow.png' alt='move the task to pending section icon' id='moveIcon' onclick='movetoPending(this)'>";
 	move.remove();
 	task.innerHTML += moveIcon;
 	todo.appendChild(task);
