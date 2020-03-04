@@ -13,12 +13,13 @@ input.addEventListener('keyup', function(event){
 button.addEventListener('click', function(){
 	var task = input.value;
 	if(task==''){
-		input.classList.add('emptyAlert');
+		input.classList.add('emptyAlert', 'animated','shake');
+		setTimeout(()=>{input.classList.remove('emptyAlert', 'animated', 'shake')}, 1300);
 	}
-	else{ 
+	else{
 		adder(task);
 		if(input.classList.contains('emptyAlert')){
-			input.classList.remove('emptyAlert');
+			input.classList.remove('emptyAlert', 'animated', 'shake');
 		}
 	}
 });
@@ -32,7 +33,7 @@ function adder(task){
 	var y = document.createTextNode(task);
 	var moveIcon = "<img src='https://img.icons8.com/metro/26/000000/forward-arrow.png' alt='move the task to pending section icon' id='moveIcon' onclick='movetoPending(this)'>";
 	var deleteIcon = "<img src='../assets/svg/trash.svg' alt='delete the task icon' id='deleteIcon' onclick='deleteTask(this)'>";
-	
+
 	x.appendChild(y);
 	div.appendChild(x);
 	div.insertAdjacentHTML('afterbegin', checkbox);
